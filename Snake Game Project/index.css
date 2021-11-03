@@ -1,0 +1,63 @@
+html, body {
+    margin: 10;
+    padding: 10;
+    color: #353535;
+    background-color: #353535;
+    font-family: 'Press Start 2P';
+}
+
+h1 {
+    font-size: 85px;
+    margin-bottom: 20px;
+}
+
+#container {
+    margin: 0 auto;
+    padding: 20px;
+    width: 600px;
+    background-color: rgb(143, 193, 143);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.543) 0px 8px 24px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: rgb(182, 225, 182);
+    margin-bottom: 40px;
+    border: solid 10px rgb(182, 225, 182);
+    border-radius: 15px;
+}
+
+#start {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin-bottom: 60px;
+    border: none;
+    border-radius: 15px;
+    color: #353535;
+    background-color: rgb(213, 213, 213);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 8px 24px;
+}
+
+#start:active {
+    transform: translateY(4px);
+}
+
+.square {
+    width: 20px;
+    height: 20px;
+}
+
+.snake {
+    background-color: #353535;
+}
+
+.apple {
+    background-color: rgb(250, 88, 88);
+    border-radius: 10px;
+}
