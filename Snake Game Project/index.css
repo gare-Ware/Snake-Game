@@ -1,42 +1,77 @@
 html, body {
-    margin: 10;
-    padding: 10;
     color: #353535;
-    background-color: #353535;
+    background: linear-gradient(45deg, rgb(235, 241, 140), rgb(133, 187, 231),rgb(255, 189, 136));
     font-family: 'Press Start 2P';
 }
 
+/* * {
+    box-sizing: border-box;
+} */
+
 h1 {
-    font-size: 85px;
-    margin-bottom: 20px;
+    font-size: 3.8rem;
+    margin-bottom: 0;
+    letter-spacing: 2;
+}
+
+h2 {
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    letter-spacing: 1;
 }
 
 #container {
-    margin: 0 auto;
-    padding: 20px;
-    width: 600px;
+    padding: 1rem;
+    width: 420px;
     background-color: rgb(143, 193, 143);
     text-align: center;
     border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.543) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.288) 0px 8px 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto;
     background-color: rgb(182, 225, 182);
     margin-bottom: 40px;
-    border: solid 10px rgb(182, 225, 182);
     border-radius: 15px;
 }
 
+#pressStart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    letter-spacing: 1;
+    transform: translate(-50%, -50%);
+    display: block;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+#gameOver {
+    font-size: 1.5rem;
+    letter-spacing: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: game-over 1100ms ease-in forwards;
+    display: none;
+    color: #353535;
+    -webkit-text-stroke: .5px rgb(213, 213, 213);
+}
+
 #start {
-    font-size: 20px;
-    padding: 20px 40px;
-    margin-bottom: 60px;
+    font-size: 1rem;
+    width: 300px;
+    padding: 20px 0;
+    margin-bottom: 3em;
     border: none;
     border-radius: 15px;
     color: #353535;
@@ -49,8 +84,8 @@ h1 {
 }
 
 .square {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .snake {
@@ -60,4 +95,20 @@ h1 {
 .apple {
     background-color: rgb(250, 88, 88);
     border-radius: 10px;
+}
+
+@keyframes blink {
+    to {visibility: hidden;}
+}
+
+@keyframes game-over {
+    from {
+        opacity: 0;
+        top: 27%;
+    }
+    to {
+        opacity: 1;
+        top: 50%;
+        transform: translateX(-50%);
+    }
 }

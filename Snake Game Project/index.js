@@ -1,6 +1,8 @@
 const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
+const pressStart = document.getElementById("pressStart")
+const gameOver = document.getElementById("gameOver")
 let squares = []
 let currentSnake = [2,1,0]
 let direction = 1
@@ -26,7 +28,7 @@ function createGrid() {
 }
 createGrid()
 
-currentSnake.forEach(index => squares[index].classList.add('snake'))
+// currentSnake.forEach(index => squares[index].classList.add('snake'))
 scoreDisplay.textContent = score
 
 function startGame() {
@@ -35,6 +37,8 @@ function startGame() {
     //remove the apple
     squares[appleIndex].classList.remove('apple')
     clearInterval(timerId)
+    gameOver.style.display = "none"
+    pressStart.style.display = "none"
     currentSnake = [2,1,0]
     score = 0
     //re add new score to browser
@@ -54,8 +58,7 @@ function move() {
         (currentSnake[0] % width === 0 && direction === -1) || //if snake has hit left wall
         (currentSnake[0] - width < 0 && direction === -width) || //if snake has hit top
         squares[currentSnake[0] + direction].classList.contains('snake')
-    )
-    return clearInterval(timerId)
+    ) return endGame()
 
     //remove last element from our currentSnake array
     const tail = currentSnake.pop()
@@ -97,7 +100,7 @@ function generateApple() {
     } while (squares[appleIndex].classList.contains('snake'))
     squares[appleIndex].classList.add('apple')
 } 
-generateApple()
+// generateApple()
 
 // 39 is right arrow
 // 38 is for the up arrow
@@ -115,5 +118,11 @@ function control(e) {
         direction = +width
     }
 }
+
+function endGame() {
+    clearInterval(timerId)
+    gameOver.style.display = "block"
+}
+
 document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
