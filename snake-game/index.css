@@ -33,17 +33,6 @@ h2 {
     transform: translate(-50%, -50%);
 }
 
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    background-color: rgb(182, 225, 182);
-    margin-bottom: 40px;
-    border-radius: 15px;
-}
-
 #pressStart {
     position: absolute;
     left: 50%;
@@ -81,6 +70,17 @@ h2 {
 
 #start:active {
     transform: translateY(4px);
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: rgb(182, 225, 182);
+    margin-bottom: 40px;
+    border-radius: 15px;
 }
 
 .square {
