@@ -3,6 +3,10 @@ const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
 const pressStart = document.getElementById("pressStart")
 const gameOver = document.getElementById("gameOver")
+const up = document.getElementById("up")
+const right = document.getElementById("right")
+const down = document.getElementById("down")
+const left = document.getElementById("left")
 let squares = []
 let currentSnake = [2,1,0] // array elements in reverse so I can refer to index 0 as snake head
 let direction = 1
@@ -111,7 +115,26 @@ function endGame() {
     gameOver.style.display = "block"
 }
 
+// mobile controls
+function mobileUp() {
+    direction = -width
+}
+function mobileRight() {
+    direction = 1
+}
+function mobileDown() {
+    direction = +width
+}
+function mobileLeft() {
+    direction = -1
+}
+
 createGrid()
 scoreDisplay.textContent = score
 document.addEventListener('keydown', control)
 startButton.addEventListener('click', startGame)
+up.addEventListener('click', mobileUp)
+right.addEventListener('click', mobileRight)
+down.addEventListener('click', mobileDown)
+left.addEventListener('click', mobileLeft)
+
